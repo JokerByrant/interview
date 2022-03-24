@@ -1,7 +1,10 @@
 package com.sxh.interview.leetcode;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
- * 斐波那契数列-使用动态规划算法求解
+ * 斐波那契数列
  * 解体思路：1.找表达式 2.定边界 3.确定起始位置(开始or末尾)
  * @author sxh
  * @date 2022/3/22
@@ -37,8 +40,24 @@ public class _70_pa_lou_ti {
         return arr[n - 1];
     }
 
+    private static Map<Integer, Integer> map = new HashMap<>();
     /**
-     * 最终解
+     * 带备忘录的递归
+     * @param n
+     * @return
+     */
+    public static int climbStairs3(int n) {
+        if (n <= 2) {
+            return n;
+        }
+        if (!map.containsKey(n)) {
+            map.put(n, climbStairs3(n - 1) + climbStairs3(n - 2));
+        }
+        return map.get(n);
+    }
+
+    /**
+     * 最终解(动态规划求解)
      * @param n
      * @return
      */
@@ -57,10 +76,12 @@ public class _70_pa_lou_ti {
 
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
-        System.out.printf("递归解法: %d。用时：%d \n", climbStairs1(45), System.currentTimeMillis() - start);
+        System.out.printf("递归解法: %d。用时：%d \n", climbStairs1(40), System.currentTimeMillis() - start);
         start = System.currentTimeMillis();
-        System.out.printf("数组解法: %d。用时：%d \n", climbStairs1(45), System.currentTimeMillis() - start);
+        System.out.printf("数组解法: %d。用时：%d \n", climbStairs2(40), System.currentTimeMillis() - start);
         start = System.currentTimeMillis();
-        System.out.printf("最终解: %d。用时：%d \n", climbStairs1(45), System.currentTimeMillis() - start);
+        System.out.printf("备忘录解法: %d。用时：%d \n", climbStairs3(40), System.currentTimeMillis() - start);
+        start = System.currentTimeMillis();
+        System.out.printf("最终解: %d。用时：%d \n", climbStairs(40), System.currentTimeMillis() - start);
     }
 }
