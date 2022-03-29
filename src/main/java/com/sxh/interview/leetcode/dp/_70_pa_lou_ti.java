@@ -1,4 +1,4 @@
-package com.sxh.interview.leetcode;
+package com.sxh.interview.leetcode.dp;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -65,13 +65,14 @@ public class _70_pa_lou_ti {
         if (n <= 2) {
             return n;
         }
-        int pre2 = 1, pre1 = 2;
-        for (int i = 2; i < n; i++) {
-            int cur = pre1 + pre2;
-            pre2 = pre1;
-            pre1 = cur;
+        int cur = 1, pre = 0, tmp;
+        for (int i = 0; i < n; i++) {
+            tmp = cur;
+            // 转移方程：dp[n] = dp[n - 1] + dp[n - 2]
+            cur = pre + cur;
+            pre = tmp;
         }
-        return pre1;
+        return cur;
     }
 
     public static void main(String[] args) {

@@ -1,9 +1,10 @@
-package com.sxh.interview.leetcode;
+package com.sxh.interview.leetcode.dp;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 强盗抢劫
  * @author sxh
  * @date 2022/3/28
  */
@@ -49,6 +50,7 @@ public class _198_da_jia_jie_she {
         int pre = 0, cur = 0, tmp;
         for (int num : nums) {
             tmp = cur;
+            // 转移方程：f(n) = Max(f(n - 1), f(n - 2) + nums[n])
             cur = Math.max(pre + num, cur);
             pre = tmp;
         }
