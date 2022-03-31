@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * 将list拆分成n个子列表，每个长度200
  * @author sxh
  * @date 2022/3/15
  */

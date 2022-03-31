@@ -6,7 +6,7 @@ import java.util.Arrays;
  * 强盗在环形截取抢劫
  * @author sxh
  * @date 2022/3/28
- * @link https://leetcode-cn.com/problems/house-robber-ii/solution/213-da-jia-jie-she-iidong-tai-gui-hua-jie-gou-hua-/
+ * @link {https://leetcode-cn.com/problems/house-robber-ii/solution/213-da-jia-jie-she-iidong-tai-gui-hua-jie-gou-hua-/}
  */
 public class _213_da_jia_jie_she_2 {
     /*
