@@ -9,8 +9,9 @@ import java.util.Arrays;
  */
 public class _300_zui_chang_di_zeng_zi_xu_lie {
     public int lengthOfLIS(int[] nums) {
-        // 转换方程：设dp[i]为以nums[i]结尾的最长严格递增子序列的长度
-        // 假设 0 < j < i，若nums[i]可以接在nums[j]之后，最长序列长度+1
+        // 转换方程：设dp[i]是以nums[i]结尾的最长严格递增子序列的长度
+        // 假设0<=j<i，若nums[i]可以排在nums[j]之后，最长子序列长度+1
+        // 最终方程：dp[i] = max{dp[i], dp[j] + 1}(0<=j<i)
         int[] dp = new int[nums.length];
         int result = 0;
         // 长度默认1
