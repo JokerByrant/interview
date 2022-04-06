@@ -1,4 +1,4 @@
-package com.sxh.interview.leetcode.dp;
+package com.sxh.interview.leetcode.dp._01_pack;
 
 import java.util.Arrays;
 

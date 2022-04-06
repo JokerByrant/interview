@@ -1,9 +1,10 @@
-package com.sxh.interview.leetcode.dp;
+package com.sxh.interview.leetcode.dp._01_pack;
 
 import java.util.Arrays;
 
 /**
- * 0—1背包问题：分割等和子集
+ * 0—1背包求和问题
+ * 递归公式: dp[j] = max(dp[j], dp[j - nums[i]] + nums[i])
  * @author sxh
  * @date 2022/4/2
  */
