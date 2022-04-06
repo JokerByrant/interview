@@ -8,7 +8,7 @@ import java.util.Arrays;
  * @date 2022/4/1
  * @link {https://programmercarl.com/%E8%83%8C%E5%8C%85%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%8001%E8%83%8C%E5%8C%85-1.html#%E4%BA%8C%E7%BB%B4dp%E6%95%B0%E7%BB%8401%E8%83%8C%E5%8C%85}
  */
-public class _0_1_bei_bao {
+public class _01_bei_bao {
     /**
      * 0-1背包问题(动规解法)
      * 解题步骤如下：
