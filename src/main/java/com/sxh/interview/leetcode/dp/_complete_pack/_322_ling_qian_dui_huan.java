@@ -27,6 +27,7 @@ public class _322_ling_qian_dui_huan {
                     dp[j] = Math.min(dp[j], dp[j - coin] + 1);
                 }
             }
+            printArr(dp);
         }
         return (dp[amount] == Integer.MAX_VALUE) ? -1 : dp[amount];
     }
