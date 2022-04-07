@@ -28,17 +28,37 @@ public class _213_da_jia_jie_she_2 {
             dp[n] 只与 dp[n - 1] 和 dp[n - 2] 有关
      */
 
-    // 动态规划, 表达式：dp[n] = max(dp[n - 1], dp[n - 2] + num[n])
+    // 动态规划
     public static int fun(int[] nums) {
+        if (nums.length == 1) {
+            return nums[0];
+        }
+        return Math.max(robAction(Arrays.copyOfRange(nums, 0, nums.length - 1)), robAction(Arrays.copyOfRange(nums, 1, nums.length)));
+    }
+    private static int robAction(int[] nums) {
+        if (nums.length == 1) {
+            return nums[0];
+        }
+        int[] dp = new int[nums.length];
+        dp[0] = nums[0];
+        dp[1] = Math.max(nums[0], nums[1]);
+        for (int i = 2; i < nums.length; i++) {
+            dp[i] = Math.max(dp[i - 1], dp[i - 2] + nums[i]);
+        }
+        return dp[nums.length - 1];
+    }
+
+    // 动态规划-优化版, 表达式：dp[n] = max(dp[n - 1], dp[n - 2] + num[n])
+    public static int fun1(int[] nums) {
         if (nums.length == 0) {
             return 0;
         }
         if (nums.length == 1) {
             return nums[0];
         }
-        return Math.max(rob(Arrays.copyOf(nums, nums.length - 1)), rob(Arrays.copyOfRange(nums, 1, nums.length)));
+        return Math.max(robAction1(Arrays.copyOf(nums, nums.length - 1)), robAction1(Arrays.copyOfRange(nums, 1, nums.length)));
     }
-    private static int rob(int[] nums) {
+    private static int robAction1(int[] nums) {
         int pre = 0, cur = 0, tmp;
         for (int num : nums) {
             tmp = cur;
@@ -50,10 +70,11 @@ public class _213_da_jia_jie_she_2 {
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[50];
+        int[] nums = new int[3];
         for (int i = 0; i < nums.length; i++) {
             nums[i] = i;
         }
-        System.out.printf("动态规划解法：%d", fun(nums));
+        System.out.println("动态规划：" + fun(nums));
+        System.out.println("动态规划-优化版：" + fun1(nums));
     }
 }
